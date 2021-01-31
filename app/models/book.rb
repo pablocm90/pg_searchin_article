@@ -8,9 +8,12 @@ class Book < ApplicationRecord
 
   pg_search_scope :book_search, 
   against: :search_column,
+  ignoring: :accents,
   using: {
     tsearch: {
       any_word: true,
+      dictionary: 'unaccented_english',
+      tsvector_column: 'vector_search',
       highlight: {
         StartSel: '<b>',
         StopSel: '</b>',

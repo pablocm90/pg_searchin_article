@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_135848) do
+ActiveRecord::Schema.define(version: 2021_01_31_180537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "books", force: :cascade do |t|
     t.text "sinopsys"
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_01_31_135848) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "search_column"
+    t.tsvector "vector_search"
     t.index ["genre_id"], name: "index_books_on_genre_id"
   end
 

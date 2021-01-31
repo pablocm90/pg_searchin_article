@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 
     query_constructor = QueryConstructor.new(params)
     @book_finder = Book::Finder.new(query_constructor)
-    @books = Book.all
+    @books = Book.all.includes(:chapters, :genre)
   end
 
   # GET /books/1 or /books/1.json
