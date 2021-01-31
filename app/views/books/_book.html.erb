@@ -1,0 +1,17 @@
+<hr>
+<p>
+  <strong><%= book.title %></strong>
+  <em> <%= book.genre.name %></em>
+</p>
+<p>
+  <%= book.sinopsys %>
+</p>
+<p><strong><em>chapters</em></strong></p>
+<% book.chapters.each do |chapter| %>
+  <p> <%= chapter.title %> </p>
+<% end %>
+<% if with_highlights %>
+  <p><strong><em>Highlights</em></strong></p>
+  <p> <%= book.pg_search_highlight.html_safe %> </p>
+  <hr>
+<%end %>

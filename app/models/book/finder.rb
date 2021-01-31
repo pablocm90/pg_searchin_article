@@ -8,10 +8,10 @@ class Book::Finder
   end
 
   def create_sufficients
-    Book.book_search(@query_constructor.sufficient_query)
+    Book.book_search(@query_constructor.sufficient_query).with_pg_search_highlight
   end
   
   def create_insufficients
-    Book.where.not(id: @sufficients.pluck(:id)).book_search(@query_constructor.insufficient_query)
+    Book.where.not(id: @sufficients.pluck(:id)).book_search(@query_constructor.insufficient_query).with_pg_search_highlight
   end
 end
