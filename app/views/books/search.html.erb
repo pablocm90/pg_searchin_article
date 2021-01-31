@@ -1,0 +1,36 @@
+<%= form_with url: search_books_path, method: :get, local: true do |form| %>
+
+  <div class="field">
+    <%= form.label :sufficient_keywords, 'sufficient keywords (separate with a ,)' %>
+    <%= form.text_area :sufficient_keywords %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insufficient_keywords, 'insufficient keywords (separate with a ,)' %>
+    <%= form.text_area :insufficient_keywords %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insufficient_keyword_count, 'insufficient keyword count' %>
+    <%= form.number_field :insufficient_keyword_count %>
+  </div>
+    <%= form.submit "Search" %>
+<% end %>
+
+
+ <h2> Sufficient Keyword hits </h2>
+ <% @book_finder.sufficients.each do |book| %>
+   <p> <%= book.title %> </p>
+ <% end %> 
+
+ <h2> Insufficient Keyword hits </h2>
+ <% @book_finder.insufficients.each do |book| %>
+   <p> <%= book.title %> </p>
+ <% end %> 
+
+
+ <h3> All books </h3>
+ <% @books.each do |book| %>
+   <p> <%= book.title %> </p>
+ <% end %> 
+
