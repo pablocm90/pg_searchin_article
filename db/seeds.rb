@@ -14,11 +14,11 @@ Genre.destroy_all
   Genre.create(name: Faker::Book.genre)
 end
 
-Book.create(genre: Genre.first, title: 'I àm weirdly accéntèd', sinopsys: 'I like piñatas')
+Book.create(genre: Genre.first, title: 'I àm weirdly accéntèd', synopsis: 'I like piñatas')
 
 Genre.all.find_each do |genre|
   10.times do
-    book = Book.create(title: Faker::Book.title, sinopsys: Faker::Books::Lovecraft.paragraphs(number: 2).join('. '), genre: genre)
+    book = Book.create(title: Faker::Book.title, synopsis: Faker::Books::Lovecraft.paragraphs(number: 2).join('. '), genre: genre)
     5.times do
       Chapter.create(title: Faker::Marketing.buzzwords, book: book)
     end

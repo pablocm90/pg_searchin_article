@@ -30,6 +30,6 @@ class Book < ApplicationRecord
   before_save :collate_search_information
 
   def collate_search_information
-    self.search_column = "#{title} // #{sinopsys} // #{genre.name} // #{chapters.pluck(:title).join(' // ')}"
+    self.search_column = "#{title} // #{synopsis} // #{genre.name} // #{chapters.pluck(:title).join(' // ')}"
   end
 end

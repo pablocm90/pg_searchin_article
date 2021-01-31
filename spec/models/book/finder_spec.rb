@@ -5,7 +5,7 @@ RSpec.describe Book::Finder do
     context 'finds books based on sufficient keywords' do
       context 'finds if the keyword is in the book title' do
         let(:genre) { Genre.create(name: 'Lorem Ipsum') }
-        let(:book) { Book.create!(title: 'Harry Potter and the philosopher stone', sinopsys: 'I am groot', genre: genre, chapters: chapter) }
+        let(:book) { Book.create!(title: 'Harry Potter and the philosopher stone', synopsis: 'I am groot', genre: genre, chapters: chapter) }
         let(:chapter) {
           [Chapter.new(title: 'And then there was one')]
         }
@@ -44,7 +44,7 @@ RSpec.describe Book::Finder do
     context 'finds books based on sufficient keywords' do
       context 'finds if the keyword is in the book title' do
         let(:genre) { Genre.create(name: 'Lorem Ipsum') }
-        let(:book) { Book.create!(title: 'Harry Potter and the philosopher stone', sinopsys: 'I am groot', genre: genre, chapters: chapter) }
+        let(:book) { Book.create!(title: 'Harry Potter and the philosopher stone', synopsis: 'I am groot', genre: genre, chapters: chapter) }
         let(:chapter) {
           [Chapter.new(title: 'And then there was one')]
         }
